@@ -1,2 +1,4 @@
-__pychache__/
-*assets/
+*/__pychache__/
+assets/
+/*/assets/
+/*/tests/assets/
