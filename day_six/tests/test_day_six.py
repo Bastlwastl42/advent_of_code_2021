@@ -1,11 +1,11 @@
 import unittest
 from pathlib import Path
 
-from day_five.day_five import data_refinement, part_one, part_two
+from day_six.day_six import data_refinement, part_one, part_two
 from utils.file import readin_files
 
 
-class TestDay05(unittest.TestCase):
+class TestDay06(unittest.TestCase):
 
     def setUp(self):
         """load data and run refinements"""
@@ -15,8 +15,8 @@ class TestDay05(unittest.TestCase):
 
     def test_part_one(self):
         """test part one"""
-        self.assertEqual(5, part_one(self.input_data, 10))
+        self.assertEqual(1, part_one(self.input_data))
 
     def test_part_two(self):
         """Test part two"""
-        self.assertEqual(12, part_two(self.input_data, 10))
+        self.assertEqual(1, part_two(self.input_data))

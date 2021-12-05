@@ -110,9 +110,9 @@ def data_refinement(raw_input_data):
     return ret_list
 
 
-def part_one(input_data: List[Tuple[MyVector, MyVector]]):
+def part_one(input_data: List[Tuple[MyVector, MyVector]], field_size: int = 10):
     """Part one"""
-    my_field = VentField(1000)
+    my_field = VentField(field_size)
     # only consider horizontal/vertical lines
     for start, end in input_data:
         if not inlinewith(start, end):
@@ -121,9 +121,9 @@ def part_one(input_data: List[Tuple[MyVector, MyVector]]):
     return my_field.spot_hot_areas()
 
 
-def part_two(input_data):
+def part_two(input_data: List[Tuple[MyVector, MyVector]], field_size: int = 10):
     """Part Two"""
-    my_field = VentField(1000)
+    my_field = VentField(field_size)
     for start, end in input_data:
         my_field.place_line(start, end)
     return my_field.spot_hot_areas()
@@ -136,5 +136,5 @@ if __name__ == "__main__":
     raw_data = readin_files(input_file, input_path)
     input_data = data_refinement(raw_data)
 
-    print(part_one(input_data))
-    print(part_two(input_data))
+    print(part_one(input_data, 1000))
+    print(part_two(input_data, 1000))
