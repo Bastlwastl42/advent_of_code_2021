@@ -1,6 +1,44 @@
+from copy import copy
 from pathlib import Path
+from typing import Dict
 
 from utils.file import readin_files
+
+
+class School:
+    """Defines a school of lantern fish"""
+    max_age: int = 8
+    repro_reset_age: int = 6
+    newborn_age: int = 8
+
+    def __init__(self, input_data):
+        """Fill in structure with histogram values from the input"""
+        self.all_fish: Dict[int, int] = {x: 0 for x in range(self.max_age)}
+        self.all_fish[-1] = 0
+        for counter in range(self.max_age + 1):
+            self.all_fish[counter] = len([x for x in input_data if x == counter])
+
+    def live_another_day(self):
+        """Swap every entry on the dict by one day (less)"""
+        new_school = {}
+        # reduce every entry by 1
+        for counter in range(self.max_age + 1):
+            new_school[counter - 1] = self.all_fish.get(counter, 0)
+
+        # add entry for -1 to 6
+        new_school[self.repro_reset_age] += new_school[-1]
+
+        # add new fish according to mature fish
+        new_school[self.newborn_age] = new_school[-1]
+
+        self.all_fish = copy(new_school)
+
+    def count_all_the_fish(self) -> int:
+        """Yeah, count all the fish"""
+        return sum([x for days, x in self.all_fish.items() if days >= 0])
+
+    def __str__(self):
+        return f"{';  '.join([f'{x}: {y}' for x, y in self.all_fish.items()])}"
 
 
 def data_refinement(raw_input_data):
@@ -11,6 +49,7 @@ def data_refinement(raw_input_data):
 def part_one(school, days):
     """Part one"""
     print(f'Initial State: {",".join([str(fish) for fish in school])}')
+
     for counter in range(days):
         # decrease every entry of the swarm
         school = [fish - 1 for fish in school]
@@ -26,7 +65,12 @@ def part_one(school, days):
 
 def part_two(input_data, days):
     """Part Two"""
-    part_one(input_data, days)
+    myschool = School(input_data)
+    for counter in range(days):
+        myschool.live_another_day()
+        # print(myschool)
+
+    return myschool.count_all_the_fish()
 
 
 if __name__ == "__main__":
