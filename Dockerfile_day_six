@@ -1,0 +1,10 @@
+FROM python:latest as aoc_base
+WORKDIR /usr/src/
+COPY utils utils
+
+FROM aoc_base as day_six
+COPY day_six day_six
+WORKDIR /usr/src/day_six
+ENV PYTHONPATH=..
+ENV PYTHONUNBUFFERED=1
+CMD python day_six.py
