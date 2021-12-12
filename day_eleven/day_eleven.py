@@ -59,17 +59,15 @@ def update_octopussies(input_data: Dict[Tuple[int, int], Octopuss]):
     # increase every octpuss
     [o.regular_increase() for o in input_data.values()]
     new_adds: List[Octopuss] = [o for o in input_data.values() if o.check_for_flash()]
-    flash_counter = 0
     while len(new_adds) > 0:
         for o in new_adds:
             o.do_flash()
-            flash_counter += 1
             [input_data.get(pos, Octopuss((-1, -1), 1)).flash_increase() for pos in
              o.neighbors]
         new_adds = [o for o in input_data.values() if
                     o.check_for_flash() and not o.flashed_this_round]
     [o.regular_end() for o in input_data.values()]
-    return flash_counter
+    return len([o for o in input_data.values() if o.flashed_this_round])
 
 
 def part_one(input_data: Dict[Tuple[int, int], Octopuss], rounds) -> int:
@@ -83,7 +81,6 @@ def part_one(input_data: Dict[Tuple[int, int], Octopuss], rounds) -> int:
 def part_two(input_data: Dict[Tuple[int, int], Octopuss]):
     """Part Two"""
     round_counter = 0
-    all_flashed = False
     all_octi = len(input_data)
     flashed_this_round = 0
     while not flashed_this_round == all_octi:
