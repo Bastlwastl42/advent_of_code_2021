@@ -12,7 +12,7 @@ class School:
     newborn_age: int = 8
 
     def __init__(self, input_data):
-        """Fill in structure with histogram values from the input"""
+        """Fill in structure with histogram values from the wire_input"""
         self.all_fish: Dict[int, int] = {x: 0 for x in range(self.max_age)}
         self.all_fish[-1] = 0
         for counter in range(self.max_age + 1):
@@ -42,7 +42,7 @@ class School:
 
 
 def data_refinement(raw_input_data):
-    """Do some refinement on the input data"""
+    """Do some refinement on the wire_input data"""
     return [int(x.rstrip()) for x in raw_input_data[0].split(',')]
 
 
@@ -75,7 +75,7 @@ def part_two(input_data, days):
 
 if __name__ == "__main__":
     """Load data and send to functions"""
-    input_file = 'input.txt'
+    input_file = 'wire_input.txt'
     input_path = Path.cwd() / 'assets'
     raw_data = readin_files(input_file, input_path)
     input_data = data_refinement(raw_data)

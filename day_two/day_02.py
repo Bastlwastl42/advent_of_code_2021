@@ -33,7 +33,7 @@ def day_two_part_two(input_data):
 
 
 if __name__ == "__main__":
-    input_file = 'input.txt'
+    input_file = 'wire_input.txt'
     input_path = Path.cwd() / 'assets'
     input_data = [line.split(' ') for line in readin_files(input_file, input_path)]
     print(day_two_part_one(input_data))

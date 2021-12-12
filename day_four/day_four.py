@@ -43,7 +43,7 @@ class BingoBoard:
 
 
 def data_refinement(raw_input_data) -> Tuple[List[int], List[BingoBoard]]:
-    """Do some refinement on the input data"""
+    """Do some refinement on the wire_input data"""
     # first line is the line of drawn numbers
     numbers_to_draw = [int(x.rstrip()) for x in raw_input_data[0].split(',')]
     boards: List[BingoBoard] = []
@@ -106,7 +106,7 @@ def part_two(input_data: Tuple[List[int], List[BingoBoard]]) -> int:
 
 if __name__ == "__main__":
     """Load data and send to functions"""
-    input_file = 'input.txt'
+    input_file = 'wire_input.txt'
     input_path = Path.cwd() / 'assets'
     raw_data = readin_files(input_file, input_path)
     input_data = data_refinement(raw_data)

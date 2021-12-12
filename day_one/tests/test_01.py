@@ -3,7 +3,7 @@ from day_one.day_01 import day_one_part_one, day_one_part_two
 from pathlib import Path
 
 class TestDayOne(unittest.TestCase):
-    """Testing from given input"""
+    """Testing from given wire_input"""
     def setUp(self) -> None:
         self.test_input_folder = Path.cwd() / 'assets'
         self.test_input_file = 'test_input.txt'

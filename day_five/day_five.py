@@ -61,7 +61,7 @@ class VentField:
 
     def __init__(self, size):
         """
-        init by given size, 1000 should do for the input as there were more or less 3 digit
+        init by given size, 1000 should do for the wire_input as there were more or less 3 digit
             coordindates.
         """
         self.field = [[0 for _ in range(size)] for _ in range(size)]
@@ -101,7 +101,7 @@ class VentField:
 
 
 def data_refinement(raw_input_data):
-    """Do some refinement on the input data"""
+    """Do some refinement on the wire_input data"""
     ret_list = []
     for line in raw_input_data:
         split_lines = line.split(' -> ')
@@ -131,7 +131,7 @@ def part_two(input_data: List[Tuple[MyVector, MyVector]], field_size: int = 10):
 
 if __name__ == "__main__":
     """Load data and send to functions"""
-    input_file = 'input.txt'
+    input_file = 'wire_input.txt'
     input_path = Path.cwd() / 'assets'
     raw_data = readin_files(input_file, input_path)
     input_data = data_refinement(raw_data)

@@ -37,7 +37,7 @@ def day_one_part_one(input_file: str, input_path: Path):
     return increase_counter, decrease_counter
 
 
-def day_one_part_two(input_file: str = 'input.txt', input_path: Path = Path.cwd()):
+def day_one_part_two(input_file: str = 'wire_input.txt', input_path: Path = Path.cwd()):
     """doing sliding window differentiation"""
 
     numbers = [convert_to_num(line) for line in readin_files(input_file, input_path)]
@@ -58,5 +58,5 @@ def day_one_part_two(input_file: str = 'input.txt', input_path: Path = Path.cwd(
 
 if __name__ == "__main__":
     my_input_path = Path.cwd() / 'assets'
-    day_one_part_one('input.txt', my_input_path)
-    day_one_part_two('input.txt', my_input_path)
+    day_one_part_one('wire_input.txt', my_input_path)
+    day_one_part_two('wire_input.txt', my_input_path)

@@ -9,7 +9,7 @@ def binary_string_to_int(bit_string):
 
 
 def data_refinement(raw_input_data):
-    """Do some refinement on the input data"""
+    """Do some refinement on the wire_input data"""
     return [x.rstrip() for x in raw_input_data]
 
 
@@ -67,7 +67,7 @@ def part_two(input_data):
 
 if __name__ == "__main__":
     """Load data and send to functions"""
-    input_file = 'input.txt'
+    input_file = 'wire_input.txt'
     input_path = Path.cwd() / 'assets'
     raw_data = readin_files(input_file, input_path)
     input_data = data_refinement(raw_data)
