@@ -15,8 +15,8 @@ class TestDay11(unittest.TestCase):
 
     def test_part_one(self):
         """test part one"""
-        self.assertEqual(1, part_one(self.input_data))
+        self.assertEqual(1656, part_one(self.input_data, 100))
 
     def test_part_two(self):
         """Test part two"""
-        self.assertEqual(1, part_two(self.input_data))
+        self.assertEqual(195, part_two(self.input_data))
