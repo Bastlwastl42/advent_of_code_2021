@@ -5,7 +5,7 @@ from day_thirteen.day_thirteen import data_refinement, part_one, part_two
 from utils.file import readin_files
 
 
-class TestDay11(unittest.TestCase):
+class TestDay13(unittest.TestCase):
 
     def setUp(self):
         """load data and run refinements"""
@@ -15,8 +15,8 @@ class TestDay11(unittest.TestCase):
 
     def test_part_one(self):
         """test part one"""
-        self.assertEqual(1, part_one(self.input_data))
+        self.assertEqual(17, part_one(self.input_data))
 
     def test_part_two(self):
-        """Test part two"""
+        """Test part two, not really possible, but it would displah a square"""
         self.assertEqual(1, part_two(self.input_data))

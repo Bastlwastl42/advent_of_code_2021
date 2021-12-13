@@ -86,6 +86,10 @@ def part_two(input_data: Dict[Tuple[int, int], Octopuss]):
     while not flashed_this_round == all_octi:
         flashed_this_round = update_octopussies(input_data)
         round_counter += 1
+    for row_counter in range(10):
+        for col_counter in range(10):
+            print(input_data[row_counter, col_counter].value, end='')
+        print('')
     return round_counter
 
 
